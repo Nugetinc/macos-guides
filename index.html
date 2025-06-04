@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>install macos 14 in vmware</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>installing</h1>
+
+  <div class="step">
+    <h2>1: requirements</h2>
+    <ul>
+      <li>vmware workstation 17</li>
+      <li>macOS 14 sonoma iso</li>
+      <li>vmware unlocker for macos</li>
+      <li>At least 60GB disk space and 8GB+ RAM</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h2>2: unlock vmware for macos</h2>
+    <ol>
+      <li>download <a href="https://github.com/paolo-projects/auto-unlocker" target="_blank">auto-Unlocker</a> by Paolo.</li>
+      <li>extract and run <code>win-install.cmd</code> as administrator.</li>
+      <li>This adds the macos option in vmare.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <h2>3: create a new virtual machine</h2>
+    <ol>
+      <li>Open vmware and click <strong>Create a New Virtual Machine</strong>.</li>
+      <li>select <strong>Typical (recommended)</strong>.</li>
+      <li>choose <strong>I will install the OS later</strong>.</li>
+      <li>Select <strong>Apple Mac OS</strong> and version <strong>macOS 14</strong></li>
+      <li>name it and choose a location.</li>
+      <li>allocate at least 60GB virtual disk.</li>
+      <li>finish then click <strong>edit virtual machine settings</strong> to:
+        <ul>
+          <li>Set ram: 8–16GB</li>
+          <li>processors: 2 or more</li>
+          <li>Attach the macOS 14 ISO to the CD/DVD drive</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <h2>Step 4: Add macOS EFI Tweaks</h2>
+    <p>Edit the VM’s <code>.vmx</code> file and add the following:</p>
+    <pre><code>smc.version = "0"
+cpuid.0.eax = "0000:0000:0000:0000:0000:0000:0000:1011"
+cpuid.0.ebx = "0111:0101:0110:1110:0110:0101:0100:0111"
+cpuid.0.ecx = "0110:1100:0110:0101:0111:0100:0110:1110"
+cpuid.0.edx = "0100:1001:0110:0101:0110:1110:0110:1001"
+cpuid.1.eax = "0000:0000:0000:0001:0000:0110:0111:0001"
+cpuid.1.ebx = "0000:0010:0000:0001:0000:1000:0000:0000"
+cpuid.1.ecx = "1000:0010:1001:1000:0010:0010:0000:0011"
+cpuid.1.edx = "0000:0111:1000:1011:1111:1011:1111:1111"
+board-id = "Mac-937A206F2EE63C01"
+hw.model.reflectHost = "FALSE"
+hw.model = "MacBookPro15,1"</code></pre>
+  </div>
+
+  <div class="step">
+    <h2>5: Start the vm and install macOS</h2>
+    <ol>
+      <li>power on the vm</li>
+      <li>format via disk util</li>
+      <li>install macos sonoma normally from the installer.</li>
+      <h1>THIS CAN AND MOST LIKELY WILL TAKE A WHILE (UPWARDS OF 2 HOURS)</h1>
+    </ol>
+  </div>
+
+  <div class="step">
+    <h2>6: post-install tweaks</h2>
+    <ul>
+      <li>install vmware tools for resolution and input sync.</li>
+    </ul>
+  </div>
+
+</body>
+</html>
