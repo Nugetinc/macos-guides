@@ -13,9 +13,9 @@
     <h2>1: requirements</h2>
     <ul>
       <li>vmware workstation 17</li>
-      <li>macOS 14 sonoma iso</li>
+      <li><a href="https://drive.usercontent.google.com/download?id=1FdocBt9nSuqGmNWpwkIWqXi7FbuBd8P3&export=download&authuser=0" target="_blank">macos 14 iso</a></li>
       <li>vmware unlocker for macos</li>
-      <li>At least 60GB disk space and 8GB+ RAM</li>
+      <li>At least 80GB disk space and 8GB+ RAM</li>
     </ul>
   </div>
 
@@ -36,7 +36,7 @@
       <li>choose <strong>I will install the OS later</strong>.</li>
       <li>Select <strong>Apple Mac OS</strong> and version <strong>macOS 14</strong></li>
       <li>name it and choose a location.</li>
-      <li>allocate at least 60GB virtual disk.</li>
+      <li>allocate at least 80GB virtual disk as a single file.</li>
       <li>finish then click <strong>edit virtual machine settings</strong> to:
         <ul>
           <li>Set ram: 8–16GB</li>
@@ -59,9 +59,11 @@ cpuid.1.eax = "0000:0000:0000:0001:0000:0110:0111:0001"
 cpuid.1.ebx = "0000:0010:0000:0001:0000:1000:0000:0000"
 cpuid.1.ecx = "1000:0010:1001:1000:0010:0010:0000:0011"
 cpuid.1.edx = "0000:0111:1000:1011:1111:1011:1111:1111"
-board-id = "Mac-B4831CEBD52A0C4C"
+board-id = "Mac-A61BADE1FDAD7B05"
 hw.model.reflectHost = "FALSE"
-hw.model = "MacBookPro14,1"</code></pre>
+hw.model = "MacBookPro16,4"</code></pre>
+    <p>or change <code>hw.model</code> and <code>board-id</code> to match your desired mac.</p>
+    <p>this is recommended for apple services to work.</p>
   </div>
 
   <div class="step">
